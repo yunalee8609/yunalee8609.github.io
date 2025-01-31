@@ -16,9 +16,7 @@ function draw(){
 
 var oyster;
 
-oyster = 5;
+oyster = 3.5;
 
-var oyster = 10;
-
-console.log(oyster);
+console.log("the cost of each oyster was " + oyster );
 
