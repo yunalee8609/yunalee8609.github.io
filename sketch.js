@@ -13,3 +13,12 @@ function draw(){
     y = y + 4;
     y = y % 600;
 }
+
+var oyster;
+
+oyster = 5;
+
+var oyster = 10;
+
+console.log(oyster);
+
