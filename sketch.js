@@ -15,7 +15,7 @@ function draw(){
 }
 
 var oyster;
-
+         
 oyster = 3.5;
 
 console.log("the cost of each oyster was " + oyster );
