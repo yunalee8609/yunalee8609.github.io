@@ -48,7 +48,7 @@ function draw() {
 
     if (mouseIsPressed) {
         if(dist(mouseX, mouseY, clockX, clockY) < clockSize) {
-            reloadPage();
+            location.reload();
         }
     }
 
