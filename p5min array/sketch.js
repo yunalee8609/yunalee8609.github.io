@@ -32,9 +32,9 @@ function draw() {
     textSize(clockSize);
     text("🕰️", clockX, clockY);
 
-    textSize(40);
+    textSize(35);
     fill("pink")
-    text("press to dress👑~", 530, 700);
+    text("press and hold to dress👑~", 530, 700);
 
     tint(255, (1-revealAmount) * 255);
     image(images[0], 300, 300, 220, 450 );
