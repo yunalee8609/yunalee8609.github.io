@@ -46,9 +46,9 @@ function draw() {
     // Check if clock is clicked
     if (mouseIsPressed) {
         let distance = dist(mouseX, mouseY, clockX, clockY);
-        console.log("Mouse click distance:", distance); // Debugging log
-        if (distance < clockSize / 2) { // Use the correct radius for the emoji
-            console.log("Clock clicked!"); // Debugging log
+        console.log("Mouse click distance:", distance); 
+        if (distance < clockSize ) { 
+            console.log("Clock clicked!"); 
             location.reload();
         }
     }
