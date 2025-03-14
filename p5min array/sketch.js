@@ -22,7 +22,6 @@ function draw() {
 
     noStroke();
 
-
     textSize(20);
     fill("black")
     text("magic time over:(", 70, 130);
@@ -30,10 +29,8 @@ function draw() {
     let clockSize = 80;
     let clockX = 100;
     let clockY = 100;
-    textSize (clockSize);
+    textSize(clockSize);
     text("🕰️", clockX, clockY);
-
-
 
     textSize(40);
     fill("pink")
@@ -46,24 +43,28 @@ function draw() {
     image(images[1], 200, 300, 450, 450);
     noTint();
 
+    // Check if clock is clicked
     if (mouseIsPressed) {
-        if(dist(mouseX, mouseY, clockX, clockY) < clockSize) {
+        let distance = dist(mouseX, mouseY, clockX, clockY);
+        console.log("Mouse click distance:", distance); // Debugging log
+        if (distance < clockSize / 2) { // Use the correct radius for the emoji
+            console.log("Clock clicked!"); // Debugging log
             location.reload();
         }
     }
 
     if (mouseIsPressed || keyIsPressed) {
         particles.push(new Particle(mouseX, mouseY));
-        revealAmount =  constrain(revealAmount + 0.01, 0, 1);
+        revealAmount = constrain(revealAmount + 0.01, 0, 1);
     }
 
     drawStick(mouseX, mouseY);
 
-    for (let i = particles.length -1; i>= 0; i--) {
+    for (let i = particles.length - 1; i >= 0; i--) {
         particles[i].update();
         particles[i].display();
 
-        if(particles[i].isDead()) {
+        if (particles[i].isDead()) {
             particles.splice(i, 1);
         }
     }
@@ -72,7 +73,7 @@ function draw() {
 function drawStick(x, y) {
     stroke(255);
     strokeWeight(3);
-    line(x, y+40, x, y-0);
+    line(x, y + 40, x, y - 0);
 }
 
 class Particle {
@@ -83,18 +84,18 @@ class Particle {
         this.emoji = random(["✨", "🌟", "💫"]);
     }
 
-    update(){
+    update() {
         this.pos.add(this.vel);
         this.lifespan -= 5;
     }
 
-    display(){
-        fill(255, 255, 100,this.lifespan);
+    display() {
+        fill(255, 255, 100, this.lifespan);
         textSize(18);
         text(this.emoji, this.pos.x, this.pos.y);
     }
 
-    isDead(){
-        return this.lifespan <0;
+    isDead() {
+        return this.lifespan < 0;
     }
 }
